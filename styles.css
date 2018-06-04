@@ -9,7 +9,7 @@
        padding: 0;
        font-size: 10px;
    }
-  h1, body, ul,li, a{
+  h1, body, ul,li, a,p{
       margin: 0;
       padding: 0;
       font-family: Rockwell, Arial, sans-serif;
@@ -17,14 +17,17 @@
 
 
    body{
-    background: #55ddff; /* Старые браузеры */
-    background: radial-gradient( circle farthest-side at center top, #ffffff, #ada6a0);
-   }
+    background: #ada6a0; /* Старые браузеры */
+    background: radial-gradient( circle closest-side at 50% 300px, #fff, #ada6a0);
+    background-position-y: -320px;
+    /*background-repeat: no-repeat;*/
+    background-size: cover;
+}
    section{
        margin-bottom: 1.5rem;
    }
    .container{
-       width: 930px;
+       max-width: 931px;
        margin: 0 auto;
    }
    .slidewrapper{
@@ -32,25 +35,35 @@
        padding: 12px 10px;
        width: 100%;
        box-sizing: border-box;
+       box-shadow: 0 0 6px #545454;
    }
 
    .header{
-       padding-top: 4rem;
+       padding-top: 40px;
    }
 
    .logo{
        text-align: center;
-       font-family: Rockwell, Arial, sans-serif;
-       color: #545454;
-       font-size: 3.8rem;
+       font-family: Arial, sans-serif;
        opacity: 0.28;
+   }
+   .logo h1{
+       font-weight: 500;
+       line-height: 0.8em;
+       font-size: 8.8em;
+       color: #545454;
+
    }
 
    .header__row{
        display: flex;
        background-color: #ffffff;
-       margin: 1.5rem 0;
+       margin: 3rem 0 1.5rem 0;
        align-items: center;
+       height: 5.6rem;
+       /*border: 1px solid #545454;*/
+       box-sizing: border-box;
+       box-shadow: 0 0 6px #545454;
    }
 
    .nav__list{
@@ -68,10 +81,66 @@
        font-size: 1.8rem;
        color: #5b5b5b;
    }
+  .nav__link:hover{
+      color: #1f1f1f;
+  }
 
    .search{
        margin-left: auto;
+       margin-right: 1.2rem;
+       position: relative;
+       width: 26rem;
+       height: 3.2rem;
    }
+   .search__input{
+        height: 100%; 
+        width: 100%;
+        border: 1px solid #dadada;
+        border-radius: 2px;
+        outline: none;
+        background-color: #fafafa;
+        padding: 0 1.5rem;
+        font-size: 1.8rem;
+        font-style: italic;
+        font-family: Rockwell;
+        color: #545454; 
+   }
+   .search__input::placeholder{
+        color: #dadada; 
+   }
+
+   .search__button {
+    position: absolute;
+    width: 27px;
+    height: 23px;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 15px;
+    border: none;
+    background-color: #fafafa;
+    background-image: url(img/search.png);
+    background-size: cover;
+    cursor: pointer;
+   }
+.owl-stage-outer{
+    position: relative;
+}
+.owl-prev, .owl-next{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%) !important;
+    opacity: 0.5;
+    outline: none;
+}
+.owl-prev:hover, .owl-next:hover{
+    opacity: 1;
+}
+.owl-prev{
+    left: 2rem;
+}
+.owl-next{
+    right: 2rem;
+}
 
    .article{
     margin-left: 1rem;
@@ -87,22 +156,46 @@
        font-size: 1.2rem;
        color: #1f1f1f;
        text-indent: 3em;
-       margin: 1rem 0 6rem 0;
+       margin: 2rem 0 5rem 0;
+       text-align: justify ;
    }
    .article__link{
        position: absolute;
-       right: 1rem;
-       bottom: 1.2rem;
+       right: 1.5rem;
+       bottom: 2rem;
        color: #000000;
        font-size: 1.2rem;
+       text-decoration: none;
+   }
+   .article__link:hover{
+       text-decoration: underline ;
    }
 
    .welcome .slidewrapper{
        position: relative;
+       display: flex;
+   }
+   .pictureswrapper{
+       width: 230px;
+       display: flex;
+       flex-wrap:wrap;
+       align-content: flex-start;
+   }
+   .article__img-small{
+       width: 10rem;
+       height: 8rem;
+       padding: 5px;
+   }
+   .welcome__text{
+       width: 75%;
    }
 
    .welcome__header{
        font-size: 1.8rem;
+       color: #545454;
+       padding: 0;
+       margin: 0;
+       font-weight: 300;
    }
    .footer{
        margin-bottom: 12rem;
@@ -114,6 +207,7 @@
        height: 5rem;
        align-items: center;
        font-family: Calibri, sans-serif;
+       box-shadow: 0 0 6px #545454;
    }
 
    .coordinates__span{
@@ -128,4 +222,13 @@
         font-style: normal;
         text-decoration: none;
         font-family: Calibri, sans-serif;
+   }
+   .coordinates__span a:hover{
+       text-decoration: underline;
+   }
+
+   @media screen and (max-device-width: 940px) {
+    .container{
+        margin: 0 20px;
+    }
    }
