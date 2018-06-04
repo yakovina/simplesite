@@ -1,0 +1,131 @@
+@font-face {
+    font-family: Rockwell;/* Имя шрифта */
+  src: url(fonts/rockwell.woff); /* Путь к файлу со шрифтом */
+    font-weight: normal;
+   }
+  
+   html{
+       margin: 0;
+       padding: 0;
+       font-size: 10px;
+   }
+  h1, body, ul,li, a{
+      margin: 0;
+      padding: 0;
+      font-family: Rockwell, Arial, sans-serif;
+  }
+
+
+   body{
+    background: #55ddff; /* Старые браузеры */
+    background: radial-gradient( circle farthest-side at center top, #ffffff, #ada6a0);
+   }
+   section{
+       margin-bottom: 1.5rem;
+   }
+   .container{
+       width: 930px;
+       margin: 0 auto;
+   }
+   .slidewrapper{
+       background-color: #ffffff;
+       padding: 12px 10px;
+       width: 100%;
+       box-sizing: border-box;
+   }
+
+   .header{
+       padding-top: 4rem;
+   }
+
+   .logo{
+       text-align: center;
+       font-family: Rockwell, Arial, sans-serif;
+       color: #545454;
+       font-size: 3.8rem;
+       opacity: 0.28;
+   }
+
+   .header__row{
+       display: flex;
+       background-color: #ffffff;
+       margin: 1.5rem 0;
+       align-items: center;
+   }
+
+   .nav__list{
+       list-style-type: none;
+       display: flex;
+   }
+   .nav__item{
+       margin-left: 7rem;
+   }
+   .nav__item:first-child{
+       margin-left: 5rem;
+   }
+   .nav__link{
+       text-decoration: none;
+       font-size: 1.8rem;
+       color: #5b5b5b;
+   }
+
+   .search{
+       margin-left: auto;
+   }
+
+   .article{
+    margin-left: 1rem;
+    position: relative;
+   }
+   .article:first-child{
+       margin-left: 0;
+   }
+   .articles__wrapper{
+       display: flex;
+   }
+   .article__text{
+       font-size: 1.2rem;
+       color: #1f1f1f;
+       text-indent: 3em;
+       margin: 1rem 0 6rem 0;
+   }
+   .article__link{
+       position: absolute;
+       right: 1rem;
+       bottom: 1.2rem;
+       color: #000000;
+       font-size: 1.2rem;
+   }
+
+   .welcome .slidewrapper{
+       position: relative;
+   }
+
+   .welcome__header{
+       font-size: 1.8rem;
+   }
+   .footer{
+       margin-bottom: 12rem;
+   }
+
+   .coordinates{
+       background-color: #ffffff;
+       display: flex;
+       height: 5rem;
+       align-items: center;
+       font-family: Calibri, sans-serif;
+   }
+
+   .coordinates__span{
+       margin-left: 2rem;
+       font-size: 1.4rem;
+       color: #545454;
+       font-style: normal;
+   }
+   .coordinates__span a{
+        font-size: 1.4rem;
+        color: #545454;
+        font-style: normal;
+        text-decoration: none;
+        font-family: Calibri, sans-serif;
+   }
