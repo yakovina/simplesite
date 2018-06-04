@@ -7,6 +7,7 @@
     <style>
         label {
             width: 100px;
+            color: #000000;
         }
         label.error {
             color: red;
@@ -32,21 +33,21 @@
             <div class="content">
                 <form onsubmit="myForm()" id="testForm">
                     <div>
-                        <label for="firstName">First name</label>
+                        <label for="firstName" >First name</label>
                         <input type="text" id="firstName"/>
                     </div>
 
                     <div>
-                        <label for="lastName">Last name</label>
-                        <input type="text" id="lastName"/>
+                        <label for="lastName"> Last name</label>
+                        <input type="text" id="lastName" />
                     </div>
 
                     <div>
-                        <label for="email">Email</label>
-                        <input type="text" id="email"/>
+                        <label for="email" class = "email">Email</label>
+                        <input type="text" id="email"  class = "email" />
                     </div>
 
-                    <button type="submit">Send</button>
+                    <button type="submit" id="submit" >Send</button>
                 </form>
             </div>
         </div>
@@ -54,9 +55,74 @@
 </div>
 
 <script>
-    function myForm () {
 
+
+    function insertAfter(elem, refElem) {
+        return refElem.parentNode.insertBefore(elem, refElem.nextSibling);
+    
+}
+    var generateError = function(text){
+        var error = document.createElement('span');
+                error.className = "errorfield";
+                error.innerHTML = text;
+        return error;
     }
+
+    var removeValidation =function(form){
+        var fields = form.querySelectorAll('input');
+        var labels = form.querySelectorAll('label');
+        var errors = form.querySelectorAll('.errorfield');
+        for (var i = 0; i < fields.length;i++){
+            fields[i].classList.remove("error");
+            labels[i].classList.remove("error");
+            }
+        for (var i = 0; i < errors.length; i++) {
+            errors[i].remove();
+            }
+    }
+
+    var checkPresent =function(form,fields,labels){
+
+        for (var i = 0; i < fields.length;i++){
+            if (!fields[i].value){
+                var error = generateError(' Cannot be blank');
+                insertAfter(error,fields[i]);
+                labels[i].classList.add("error");
+                fields[i].classList.add("error");
+            }
+        }
+            
+    }
+
+    var checkEmail =function(form){
+        var email = form.querySelector('#email');
+        var r = /^\w+@\w+\.\w{2,4}$/i;
+        if (!r.test(email.value)) {
+            var error = generateError(' incorrect e-mail');
+                insertAfter(error,email);
+                form.querySelectorAll('.email')[0].classList.add("error");
+                form.querySelectorAll('.email')[1].classList.add("error");
+	//Код, если неверный e-mail
+}
+
+    
+}
+
+    function myForm () {
+        var form = document.querySelector('#testForm');
+        var submitButton = form.querySelector('#submit');
+        var firstname = form.querySelector('#firstName');
+        var lastname = form.querySelector('#lastName');
+        var email = form.querySelector('#email');
+        var fields = form.querySelectorAll('input');
+        var labels = form.querySelectorAll('label');
+
+        event.preventDefault();
+        removeValidation(form);
+        checkPresent(form,fields,labels);
+        checkEmail(form);
+
+    };
 </script>
 
 </body>
