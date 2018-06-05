@@ -122,6 +122,43 @@
     background-size: cover;
     cursor: pointer;
    }
+
+
+
+   .header__burger {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding: 0;
+	margin: 0;
+	border: 0;
+    outline: none;
+    background-color: #ffffff;
+    cursor: pointer;
+}
+
+
+
+.header__burger:focus span,
+.header__burger:hover span {
+	background: blueviolet;
+}
+
+.header__burger span {
+    width: 40px;
+	height: 2px;
+    background: #1f1f1f;
+    margin-top: 3px;
+}
+
+.header__burger {
+	display: none;
+}
+
+
 .owl-stage-outer{
     position: relative;
 }
@@ -230,6 +267,73 @@
        text-decoration: underline;
    }
 
+
+
+   .modal {
+	position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+	width: 100%;
+	height: 100vh;
+	z-index: 10;
+	background: #ada6a0; /* Старые браузеры */
+    background: radial-gradient( circle closest-side at 50% 300px, #fff, rgba(173,166,160,0.7));
+	top: 0;
+	left: 0;
+    padding: 5%;
+    box-sizing: border-box;
+	color: white;
+	transition: all .3s;
+	visibility: hidden;
+    transform: skew(-17deg) translateY(-100%);
+    
+}
+.modal .logo {
+    opacity: 1;
+}
+
+
+.opened {
+	visibility: visible;
+	transform: skew(0) translateY(0);
+}
+
+.close{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 44px;
+    height: 44px;
+}
+
+.close svg{
+    fill:  #d4d4d4;
+
+}
+
+.close:hover svg{
+    fill:  #1f1f1f;
+}
+
+.nav-open{
+    width: 100%;
+    text-decoration: none;
+    list-style-type: none;
+    text-align: center;
+    margin: 0;
+}
+
+.nav-open .nav__link{
+	width: 80%;
+	text-transform: uppercase;
+    text-decoration: none;
+    font-size: 3.4rem;
+}
+
+
+
    @media screen and (max-width: 940px) {
     .container{
         margin: 0 20px;
@@ -281,11 +385,10 @@
  }
 
    @media screen and (max-width: 520px) {
-       .nav__list{
-           flex-wrap: wrap;
-       }
-       .nav__item{
-        margin-left: 0rem;}
+
+    .nav {
+		display: none;
+	}
         .article{
             width: 100%;
             margin-left: 0;
@@ -300,5 +403,11 @@
         text-align: center;
         margin-bottom: 1rem;
     }
-    
+    .header__burger {
+		display: flex;
+	}
+
    }
+
+
+
