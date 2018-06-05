@@ -83,30 +83,28 @@
 
     var checkPresent =function(form,fields,labels){
 
-        for (var i = 0; i < fields.length;i++){
+        var email = form.querySelector('#email');
+        var emailclass= form.querySelectorAll('.email');
+        var regCheck = new RegExp("^([0-9a-zA-Z]+[-._+&])*[0-9a-zA-Z]+@([-0-9a-zA-Z]+[.])+[a-zA-Z]{2,6}$");
+                if(!regCheck.test(email.value)){
+                    var error = generateError(' incorrect e-mail');
+                    insertAfter(error,email);
+                    for (var i = 0; i<emailclass.length; i++){
+                        emailclass[i].classList.add("error");
+                    }
+                }
+        for (var i = 0; i < fields.length-1;i++){
             if (!fields[i].value){
                 var error = generateError(' Cannot be blank');
                 insertAfter(error,fields[i]);
                 labels[i].classList.add("error");
                 fields[i].classList.add("error");
             }
+           
         }
+    };
             
-    }
 
-    var checkEmail =function(form){
-        var email = form.querySelector('#email');
-        var r = /^\w+@\w+\.\w{2,4}$/i;
-        if (!r.test(email.value)) {
-            var error = generateError(' incorrect e-mail');
-                insertAfter(error,email);
-                form.querySelectorAll('.email')[0].classList.add("error");
-                form.querySelectorAll('.email')[1].classList.add("error");
-	//Код, если неверный e-mail
-}
-
-    
-}
 
     function myForm () {
         var form = document.querySelector('#testForm');
@@ -120,7 +118,6 @@
         event.preventDefault();
         removeValidation(form);
         checkPresent(form,fields,labels);
-        checkEmail(form);
 
     };
 </script>
