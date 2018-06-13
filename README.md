@@ -1,2 +1,2 @@
 # simplesite
-(simplesite)[https://yakovina.github.io/simplesite/index.html]
+(simplesite) [https://yakovina.github.io/simplesite/index.html]
